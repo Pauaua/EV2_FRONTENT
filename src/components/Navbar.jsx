@@ -75,7 +75,7 @@ function Navbar() {
                   sx={{ 
                     my: 0,
                     mx: 1,
-                    color: 'white',
+                    color: 'black',
                     display: 'block',
                     fontSize: '0.8rem',
                     fontWeight: 500,
