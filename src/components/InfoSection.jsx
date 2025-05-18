@@ -6,7 +6,7 @@ const cardsData = [
   {
     headerTitle: "Apoyo Municipal",
     headerDate: "Martes 13 de mayo",
-    image: "assets/apoyomunicipal.jpg", // Cambia la ruta por la imagen que desees mostrar
+    image: "/assets/apoyomunicipal.jpeg",
     mainTitle: "100 jóvenes de Cholchol son beneficiados con becas para sus estudios superiores",
     mainText: "El municipio de Cholchol ha entregado becas a 100 jóvenes para apoyar su educación superior.",
     buttons: [
@@ -17,7 +17,7 @@ const cardsData = [
   {
     headerTitle: "Derechos Ciudadanos",
     headerDate: "Miércoles 22 de mayo",
-    image: "assets/derechosciudadanos.jpg",
+    image: "/assets/derechosciudadanos.jpeg",
     mainTitle: "Municipio reconoce a dirigentes sociales que lucharon por la comuna",
     mainText: "Por primera vez se rinde homenaje a los y las vecinas que trabajaron durante años por CholChol.",
     buttons: [
@@ -28,30 +28,42 @@ const cardsData = [
 
 const InfoSection = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md')); // md = 900px
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // sm = 600px
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg" sx={{ py: isMobile ? 2 : 4 }}>
       <Grid
         container
-        spacing={3}
+        spacing={isMobile ? 2 : 3}
+        direction={isMobile || isTablet ? 'column' : 'row'}
         sx={{
           display: 'flex',
-          flexWrap: 'nowrap',
+          flexWrap: isMobile || isTablet ? 'wrap' : 'nowrap',
           paddingBottom: 2,
+          alignItems: isMobile ? 'stretch' : 'flex-start',
         }}
       >
         {cardsData.map((card, index) => (
           <Grid
             item
             key={index}
+            xs={12}
+            sm={12}
+            md={6}
             sx={{
-              minWidth: isSmallScreen ? '280px' : '320px',
+              minWidth: isMobile ? '100%' : isTablet ? '320px' : '320px',
               flexShrink: 0,
-              paddingRight: 2
+              paddingRight: !isMobile && !isTablet && index !== cardsData.length - 1 ? 2 : 0,
+              paddingBottom: isMobile || isTablet ? 2 : 0,
+              display: 'flex'
             }}
           >
-            <Box sx={{ width: '100%', height: '100%' }}>
+            <Box sx={{
+              width: '100%',
+              height: '100%',
+              display: 'flex'
+            }}>
               <InfoCard {...card} />
             </Box>
           </Grid>
