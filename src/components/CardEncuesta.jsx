@@ -9,8 +9,8 @@ import {
 } from '@mui/material';
 
 
-import cardImage1 from '../assets/card1.jpg';
-import cardImage2 from '../assets/card2.jpg';
+import cardImage1 from '/assets/card1.jpg';
+import cardImage2 from '/assets/card2.jpg';
 
 export default function CardEncuesta() {
   const cardsData = [

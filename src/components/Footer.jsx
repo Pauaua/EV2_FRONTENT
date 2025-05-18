@@ -110,7 +110,7 @@ const Footer = () => {
             order: isMobile ? 1 : 2
           }}>
             <img
-              src="/src/assets/LOGO.png"
+              src="/assets/LOGO.png"
               alt="Logo Municipalidad de Cholchol"
               style={{
                 height: isMobile ? '120px' : '180px',

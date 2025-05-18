@@ -18,15 +18,15 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 
-import galleryImage1 from '../assets/gallery1.jpg';
-import galleryImage2 from '../assets/gallery2.jpg';
-import galleryImage3 from '../assets/gallery3.jpg';
-import galleryImage4 from '../assets/gallery4.jpg';
-import galleryImage5 from '../assets/gallery5.jpg';
-import galleryImage6 from '../assets/gallery6.jpg';
-import galleryImage7 from '../assets/gallery7.jpg';
-import galleryImage8 from '../assets/gallery8.jpg';
-import galleryImage9 from '../assets/gallery9.jpg';
+import galleryImage1 from '/assets/gallery1.jpg';
+import galleryImage2 from '/assets/gallery2.jpg';
+import galleryImage3 from '/assets/gallery3.jpg';
+import galleryImage4 from '/assets/gallery4.jpg';
+import galleryImage5 from '/assets/gallery5.jpg';
+import galleryImage6 from '/assets/gallery6.jpg';
+import galleryImage7 from '/assets/gallery7.jpg';
+import galleryImage8 from '/assets/gallery8.jpg';
+import galleryImage9 from '/assets/gallery9.jpg';
 
 const GallerySection = () => {
   const theme = useTheme();

@@ -4,9 +4,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import heroImage1 from '../assets/hero1.jpg';
-import heroImage2 from '../assets/hero2.JPG';
-import heroImage3 from '../assets/hero3.png';
+import heroImage1 from '/assets/hero1.jpg';
+import heroImage2 from '/assets/hero2.JPG';
+import heroImage3 from '/assets/hero3.png';
 
 const HeroSection = () => {
   const settings = {

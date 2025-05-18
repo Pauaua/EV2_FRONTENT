@@ -12,7 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 
-import logo from '../assets/LOGO.png';
+import logo from '/assets/LOGO.png';
 
 const pages = ['MUNICIPIO', 'UNIDADES MUNICIPALES', 'INFORMACIONES', 'NÚMEROS DE UTILIDAD'];
 const settings = ['ACCESO PANEL USUARIO', 'REGÍSTRATE COMO CHONCHOLINO/A'];

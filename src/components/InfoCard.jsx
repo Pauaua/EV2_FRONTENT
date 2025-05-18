@@ -3,17 +3,22 @@ import {
   Card,
   CardContent,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Divider,
   Button,
   Box,
-  useTheme
+  useTheme,
+  CardMedia
 } from '@mui/material';
 import { motion } from 'framer-motion';
 
-const InfoCard = () => {
+const InfoCard = ({
+  headerTitle,
+  headerDate,
+  image, 
+  mainTitle,
+  mainText,
+  buttons = []
+}) => {
   const theme = useTheme();
 
   return (
@@ -37,88 +42,63 @@ const InfoCard = () => {
           textAlign: 'center'
         }}>
           <Typography variant="h6" component="h2" fontWeight="bold">
-            Comercio Municipal
+            {headerTitle}
           </Typography>
           <Typography variant="subtitle2">
-            martes 13 de mayo
+            {headerDate}
           </Typography>
         </Box>
+
+        {/* Imagen */}
+        {image && (
+          <CardMedia
+            component="img"
+            image={image}
+            alt={headerTitle}
+            sx={{ width: '100%', height: 180, objectFit: 'cover' }}
+          />
+        )}
 
         <CardContent sx={{ flexGrow: 1, p: 2 }}>
           {/* Titular principal */}
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Tras 12 años de ausencia vuelve el modelismo naval al Parque Bustamante
-          </Typography>
+          {mainTitle && (
+            <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+              {mainTitle}
+            </Typography>
+          )}
 
-          {/* Sección veterinarios */}
-          <Typography variant="body2" paragraph>
-            Estas son las fechas de los operativos veterinarios gratuitos de mayo
-          </Typography>
-          
-          <List dense sx={{ py: 0, mb: 1 }}>
-            {['Emprendimiento', 'Emprendimiento', 'Municipalidad'].map((item, index) => (
-              <ListItem key={index} sx={{ px: 0, py: 0 }}>
-                <ListItemText
-                  primary={
-                    <Box display="flex" alignItems="center">
-                      <Box sx={{
-                        width: 6,
-                        height: 6,
-                        bgcolor: theme.palette.primary.main,
-                        borderRadius: '50%',
-                        mr: 1
-                      }} />
-                      <Typography variant="body2">{item}</Typography>
-                    </Box>
-                  }
-                />
-              </ListItem>
-            ))}
-          </List>
-
-          <Divider sx={{ my: 1 }} />
-
-          {/* Sección comerciantes */}
-          <Typography variant="body2" paragraph>
-            Providencia apoya a comerciantes locales con la entrega de nuevos carros de confites
-          </Typography>
-          
-          <List dense sx={{ py: 0 }}>
-            {[
-              'Apoyemos al comercio de barrio: Conoce las ferias libres de Providencia',
-              'Infórmate de las fechas para renovar tu licencia los sábados de mayo'
-            ].map((item, index) => (
-              <ListItem key={index} sx={{ px: 0, py: 0 }}>
-                <ListItemText
-                  primary={
-                    <Box display="flex" alignItems="center">
-                      <Box sx={{
-                        width: 6,
-                        height: 6,
-                        bgcolor: theme.palette.primary.main,
-                        borderRadius: '50%',
-                        mr: 1
-                      }} />
-                      <Typography variant="body2">{item}</Typography>
-                    </Box>
-                  }
-                />
-              </ListItem>
-            ))}
-          </List>
+          {/* Texto principal */}
+          {mainText && (
+            <Typography variant="body2" paragraph>
+              {mainText}
+            </Typography>
+          )}
         </CardContent>
 
         {/* Botones */}
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          p: 1,
-          borderTop: '1px solid',
-          borderColor: 'divider'
-        }}>
-          <Button size="small" sx={{ mx: 1 }}>COMPARTIR</Button>
-          <Button size="small" sx={{ mx: 1 }}>MÁS INFORMACIÓN</Button>
-        </Box>
+        {buttons.length > 0 && (
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            p: 1,
+            borderTop: '1px solid',
+            borderColor: 'divider'
+          }}>
+            {buttons.map((btn, idx) => (
+              <Button
+                key={idx}
+                size="small"
+                sx={{ mx: 1 }}
+                {...(btn.href
+                  ? { component: 'a', href: btn.href, target: btn.external ? "_blank" : undefined, rel: btn.external ? "noopener noreferrer" : undefined }
+                  : {})}
+                onClick={btn.onClick}
+              >
+                {btn.label}
+              </Button>
+            ))}
+          </Box>
+        )}
       </Card>
     </motion.div>
   );
