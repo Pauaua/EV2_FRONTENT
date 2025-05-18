@@ -82,3 +82,13 @@ Uso de hooks de React y Material UI para responsividad.
 Validación de formularios y feedback al usuario.
 Código estilizado con ESLint y buenas prácticas de accesibilidad.
 Imágenes y recursos organizados en /src/assets.
+
+# Utilización IA
+
+Se utiliza COPILOT para ajustes y corrección de código y generación de documentación. 
+
+# Autores
+
+Paulina Acuña
+Iván Campos
+Sebastián Marquez
