@@ -19,7 +19,7 @@ function PopUp() {
       <DialogContent sx={{ textAlign: 'center' }}>
         <Box
           component="img"
-          src="/assets/popup.jpg" // Cambia la ruta por tu imagen
+          src="/assets/popup.jpg" 
           alt="Pago Permiso de Circulación"
           sx={{ width: '100%', maxHeight: 180, objectFit: 'cover', borderRadius: 2, mb: 2 }}
         />
