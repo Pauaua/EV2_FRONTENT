@@ -12,6 +12,7 @@ import PermisoCirculacionSection from './components/PermisoCirculacionSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import YoutubeSection from './components/YoutubeSection'
+import PopUp from './components/PopUp'
 
 
 
@@ -37,7 +38,7 @@ function App() {
         <ContactSection/>
         <YoutubeSection/>
         <Footer/>
-
+        <PopUp/>
 
       </div>
       
